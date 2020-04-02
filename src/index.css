@@ -1,13 +1,520 @@
 body {
+  min-height: 100%;
+  width: 100%;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  background-color: #282828;
+  color: white;
+  font-family: lato;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.footer {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 30vh;
+  background-color: black;
+  color: white;
+}
+
+.footer p {
+  float: left;
+  margin-right: 40px;
+  transform: translateY(330%);
+}
+
+.footer img {
+  width: 70px;
+  height: 70px;
+  transform: translateY(80%);
+}
+
+.footer h4 {
+  position: relative;
+  float: right;
+  clear: right;
+  margin: 0;
+  transform: translateY(500%);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@font-face {
+  src: url("./fonts/Lato-Light.ttf");
+  font-family: lato;
+}
+
+@font-face {
+  src: url("./fonts/Caveat-Regular.ttf");
+  font-family: caveat;
+}
+
+/* NAVIGATION SECTION */
+.navbar {
+  width: 100vw;
+  height: 9vh;
+  background-color: #00001a;
+}
+
+.logo {
+  width: 150px;
+  text-align: center;
+  height: 5vh;
+  position: relative;
+  float: left;
+  transform: translateY(-50%);
+  margin-left: 40px;
+}
+
+.logo h1 {
+  color: red;
+  font-family: Caveat;
+  font-size: 35px;
+}
+
+/* SEARCH BAR SECTION */
+.searchbar {
+  margin: auto;
+  text-align: center;
+  height: 40px;
+  width: 50%;
+  transform: translateY(30%);
+}
+
+.searchbar input {
+  height: 38px;
+  width: 80%;
+  border-radius: 8px;
+  color: black;
+}
+
+.searchbar button {
+  height: 44px;
+  width: 100px;
+  border-radius: 8px;
+  transform: translateX(-80%);
+}
+
+/* HERO CAROUSEL SECTION */
+
+.heroCarousel {
+  height: 91vh;
+  width: 100%;
+}
+
+.heroContainer {
+  width: 100vw;
+  height: 91vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.heroContainer img {
+  width: 100%;
+  height: 91vh;
+  filter: brightness(50%);
+}
+
+.heroContainer h1 {
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  text-align: justify;
+  width: 60%;
+  z-index: 2;
+  font-size: 38px;
+  text-transform: uppercase;
+}
+
+.heroContainer h3 {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  text-align: justify;
+  width: 50%;
+  z-index: 2;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.heroContainer p {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  text-align: justify;
+  width: 50%;
+  z-index: 2;
+  font-size: 20px;
+}
+
+/* CAROUSEL SECTION */
+
+.carousel {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.leftButton {
+  flex: 1;
+  margin: auto;
+  flex: 1;
+  height: 55px;
+  width: auto;
+  margin: auto;
+  box-shadow: inset -10px -10px 0px black;
+  transform: translateY(-50%) rotate(135deg);
+}
+.leftButton:hover {
+  box-shadow: inset -10px -10px 0px #686868;
+}
+
+.leftButton button {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.rightButton {
+  flex: 1;
+  height: 55px;
+  width: auto;
+  margin: auto;
+  box-shadow: inset -10px -10px 0px black;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.rightButton:hover {
+  box-shadow: inset -10px -10px 0px #686868;
+}
+
+.rightButton button {
+  opacity: 0;
+  height: 50px;
+  width: 50px;
+}
+
+.movieContainer {
+  height: 320px;
+  width: 59%;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  overflow: auto;
+  white-space: nowrap;
+  position: relative;
+  flex: 20;
+  overflow: hidden;
+  display: flex;
+}
+
+.cardContainer {
+  min-width: 180px;
+  text-align: center;
+  min-height: 315px;
+  height: 100%;
+  margin: auto 19px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  transform: translateX(0);
+  transition: 0.8s;
+}
+
+.cardContainer p {
+  font-size: 15px;
+  line-height: 15px;
+  margin: 0;
+  margin-top: 10px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.cardContainer img {
+  height: 77%;
+  width: 100%;
+  border-radius: 10px;
+  filter: brightness(70%);
+}
+
+.cardContainer img:hover {
+  filter: brightness(110%);
+}
+
+.homeText {
+  text-align: justify;
+  margin: 35px auto;
+  width: 75%;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+.pop {
+  border-bottom: 1px solid black;
+}
+
+/* SEARCH PAGE SECTION */
+
+.searchContainer {
+  min-height: 180px;
+  height: 100%;
+  width: 80%;
+  padding: 30px 0;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.searchDescription {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 100px;
+}
+
+.searchDivider {
+  width: 6%;
+  border: 2px solid black;
+  margin: 30px auto;
+}
+
+.searchCardContainer {
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  text-align: center;
+  height: 315px;
+  margin: auto 19px;
+  overflow: hidden;
+}
+
+.searchCardContainer img {
+  height: 77%;
+  width: 100%;
+  border-radius: 10px;
+  filter: brightness(70%);
+}
+.searchCardContainer img:hover {
+  filter: brightness(110%);
+}
+
+.searchCardContainer h1 {
+  font-size: 14px;
+  line-height: 15px;
+  margin: 0;
+  margin-top: 10px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* MOVIE INFO SECTION */
+
+.posterHeader {
+  border: 1px solid black;
+  width: 100vw;
+  height: 90vh;
+  box-shadow: inset 0px -360px 300px #181818;
+}
+
+.posterHeaderInfo {
+  transform: translateY(230%);
+  color: white;
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.posterInformation {
+  padding: 10px;
+}
+
+.posterHeader img {
+  height: 180px;
+  width: 150px;
+  border-radius: 10px;
+}
+.posterHeader h1 {
+  margin: 20px 10px;
+}
+
+.posterHeader p {
+  display: inline-block;
+  margin: auto 12px;
+  margin-right: 5px;
+}
+
+.posterSummary {
+  margin: auto;
+  width: 70%;
+  font-size: 20px;
+}
+
+.castSummary {
+  width: 70%;
+  margin: auto;
+}
+
+.castCarouselContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.castCardContainer {
+  width: auto;
+  text-align: center;
+  height: 250px;
+}
+
+.castCardContainer p {
+  font-size: 15px;
+  line-height: 15px;
+  margin: 0;
+  margin-top: 10px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.castCardContainer img {
+  height: 80%;
+  width: 80%;
+  border-radius: 10px;
+  filter: brightness(70%);
+
+  margin: auto;
+}
+
+.castCardContainer img:hover {
+  filter: brightness(110%);
+}
+
+.reviewSection {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 90px;
+}
+
+.reviewCard {
+  border: 2px solid black;
+  margin-bottom: 60px;
+  height: 180px;
+  text-align: center;
+  background-color: #202020;
+}
+
+.reviewCard h2 a {
+  text-align: justify;
+  margin-left: 20px;
+  font-size: 20px;
+  color: gray;
+  float: left;
+}
+
+.reviewCard h2 a:hover {
+  color: white;
+}
+
+.reviewAuthor {
+  height: 27%;
+  line-height: 50px;
+  margin: auto;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.reviewContent {
+  line-height: 20px;
+  margin: auto;
+  text-align: justify;
+  height: 30%;
+  width: 96%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 5px;
+}
+
+/* PERSON INFO SECTION */
+
+.personInformation {
+  width: 100%;
+}
+
+.personBio {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+}
+.personBio img {
+  height: 100%;
+  width: 200px;
+  border: 1px solid #505050;
+  display: inline-block;
+  vertical-align: top;
+  transform: translateY(5%);
+}
+
+.personInfoblock {
+  width: 81%;
+  height: 96%;
+  position: relative;
+  display: inline-block;
+  line-height: 15px;
+  margin: 0 auto;
+  margin-left: 25px;
+  vertical-align: top;
+
+  padding: 0;
+}
+.personInfoblock h1 {
+  font-size: 27px;
+  font-weight: bolder;
+}
+
+.personInfoblock h2 {
+  font-size: 18px;
+}
+
+.personInfoblock p {
+  line-height: 20px;
+  font-size: 17px;
+}
+
+.popularMovies {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.popMoviesCard {
+  border: 2px solid black;
+  margin-bottom: 60px;
+  height: 220px;
+  background-color: #202020;
+}
+
+.popMoviesCardImage {
+  width: 12%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.popMoviesCard img {
+  width: 100%;
+  height: 100%;
+}
+
+.popMoviesDescription {
+  display: inline-block;
+
+  width: 85%;
+  height: 100%;
 }
