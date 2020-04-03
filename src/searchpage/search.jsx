@@ -1,23 +1,58 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Footer from "../homepage/footer";
+import Navigation from "../NavBar/navbar";
 
 class SearchResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: []
+      movie: this.props.movies,
+      search: this.props.search
     };
+    this.apiKey = process.env.REACT_APP_API;
   }
 
+  handleSearch = e => {
+    e.preventDefault();
+    if (this.props.search !== "") {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.props.search}
+        `
+      )
+        .then(data => data.json())
+        .then(data => {
+          this.setState({ movie: [...data.results] });
+          this.setState({ search: this.props.search });
+        });
+    }
+  };
+
   componentDidMount() {
-    this.setState({ movie: this.props.movies });
+    console.log(this.props);
+    console.log(this.props.match.params.searchtitle);
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.props.match.params.searchtitle}
+      `
+    )
+      .then(data => data.json())
+      .then(data => {
+        this.setState({ movie: [...data.results] });
+        this.setState({ search: this.props.match.params.searchtitle });
+      });
   }
+
   render() {
+    console.log(this.props.search);
     return (
       <div>
+        <Navigation
+          handleSearch={this.handleSearch}
+          handleChange={this.props.handleChange}
+          search={this.props.search}
+        />
         <div className="searchDescription">
-          <h1>SEARCH RESULTS FOR {this.props.search}</h1>
+          <h1>SEARCH RESULTS FOR {this.state.search}</h1>
         </div>
         <div className="searchDivider"></div>
         <div className="searchContainer">

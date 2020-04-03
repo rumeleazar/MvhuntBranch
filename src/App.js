@@ -52,20 +52,21 @@ class App extends Component {
   }
 
   handleChange = e => {
-    e.preventDefault();
     this.setState({ search: e.target.value });
   };
 
   handleSearch = e => {
     e.preventDefault();
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.search}
-      `
-    )
-      .then(data => data.json())
-      .then(data => {
-        this.setState({ searchedMovies: [...data.results] });
-      });
+    if (this.state.search !== "") {
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.search}
+        `
+      )
+        .then(data => data.json())
+        .then(data => {
+          this.setState({ searchedMovies: [...data.results] });
+        });
+    }
   };
 
   render() {
@@ -107,12 +108,9 @@ class App extends Component {
             exact
             render={props => (
               <Fragment>
-                <Navigation
+                <SearchResult
                   handleSearch={this.handleSearch}
                   handleChange={this.handleChange}
-                  search={this.state.search}
-                />
-                <SearchResult
                   movies={this.state.searchedMovies}
                   search={this.state.search}
                 />

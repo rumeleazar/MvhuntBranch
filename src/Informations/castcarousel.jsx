@@ -19,7 +19,6 @@ class CastCarousel extends Component {
       .then(data => data.json())
       .then(data => {
         this.setState({ cast: data.cast.slice(0, 20) });
-        console.log(this.state.cast);
       });
   }
   render() {

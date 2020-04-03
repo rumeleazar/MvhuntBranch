@@ -10,7 +10,8 @@ class PersonInfo extends Component {
       moviesCasted: [],
       popularMovies: [],
       gender: "",
-      age: ""
+      age: "",
+      search: ""
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -25,8 +26,10 @@ class PersonInfo extends Component {
         console.log(this.state.person);
         const gender = this.state.person.gender === 2 ? "Male" : "Female";
         this.setState({ gender: gender });
-        const age = 2020 - this.state.person.birthday.slice(0, 4);
-        this.setState({ age: age });
+        if (this.state.person.birthday) {
+          const age = 2020 - this.state.person.birthday.slice(0, 4);
+          this.setState({ age: age });
+        }
       });
 
     fetch(
@@ -43,10 +46,23 @@ class PersonInfo extends Component {
       });
   }
 
+  handleChange1 = e => {
+    this.setState({ search: e.target.value });
+  };
+
+  handleSearch1 = e => {
+    e.preventDefault();
+    this.setState({ search: e.target.value });
+  };
+
   render() {
     return (
       <div className="personInformation">
-        <Navigation />
+        <Navigation
+          handleSearch={this.handleSearch1}
+          handleChange={this.handleChange1}
+          search={this.state.search}
+        />
         <div className="personBio">
           <img
             src={`https://image.tmdb.org/t/p/original/${this.state.person.profile_path}`}

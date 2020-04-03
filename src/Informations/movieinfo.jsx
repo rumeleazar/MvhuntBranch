@@ -10,7 +10,8 @@ class MovieInfo extends Component {
       featuredMovie: [],
       genres: [],
       reviews: [],
-      id: this.props.match.params.movieid
+      id: this.props.match.params.movieid,
+      search: ""
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -32,14 +33,27 @@ class MovieInfo extends Component {
       .then(data => data.json())
       .then(data => {
         this.setState({ reviews: [...data.results] });
-        console.log(this.state.reviews);
       });
   }
+
+  handleChange1 = e => {
+    this.setState({ search: e.target.value });
+  };
+
+  handleSearch1 = e => {
+    e.preventDefault();
+    this.setState({ search: e.target.value });
+  };
 
   render() {
     return (
       <div>
-        <Navigation />
+        <Navigation
+          handleSearch={this.handleSearch1}
+          handleChange={this.handleChange1}
+          search={this.state.search}
+        />
+
         <div className="poster">
           <div
             className="posterHeader"
