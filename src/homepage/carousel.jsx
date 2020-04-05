@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
       transformValue: 0,
-      rightValue: 0
+      rightValue: 0,
     };
   }
 
-  carouselRight = e => {
+  carouselRight = (e) => {
     e.preventDefault();
 
     if (this.state.rightValue < this.props.movies.length - 5) {
@@ -18,7 +21,7 @@ class Carousel extends Component {
       this.setState({ transformValue: this.state.transformValue - 120.5 });
     }
   };
-  carouselLeft = e => {
+  carouselLeft = (e) => {
     e.preventDefault();
     if (this.state.transformValue < 0) {
       this.setState({ rightValue: this.state.rightValue - 2 });
@@ -27,20 +30,43 @@ class Carousel extends Component {
   };
 
   render() {
+    const settings = {
+      infinite: false,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: false,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
     return (
       <div className="carousel">
-        <div className="leftButton">
-          <button onClick={this.carouselLeft}>Left</button>
-        </div>
-        <div className="movieContainer">
+        <Slider {...settings}>
           {this.props.movies.map((movie, index) => (
-            <div
-              className="cardContainer"
-              key={index}
-              style={{
-                transform: `translateX(${this.state.transformValue}%)`
-              }}
-            >
+            <div className="cardContainer" key={index}>
               <a
                 href={`/details/${movie.title}/${movie.id}`}
                 style={{ cursor: "pointer" }}
@@ -58,10 +84,7 @@ class Carousel extends Component {
               </a>
             </div>
           ))}
-        </div>
-        <div className="rightButton">
-          <button onClick={this.carouselRight}>Right</button>
-        </div>
+        </Slider>
       </div>
     );
   }

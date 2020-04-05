@@ -7,7 +7,7 @@ class HeroCarousel extends Component {
   constructor() {
     super();
     this.state = {
-      nowPlayingMovies: []
+      nowPlayingMovies: [],
     };
     this.apiKey = this.apiKey = process.env.REACT_APP_API;
   }
@@ -18,8 +18,8 @@ class HeroCarousel extends Component {
       https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apiKey}&language=en-US&page=1
       `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ nowPlayingMovies: [...data.results] });
       });
   }
@@ -30,8 +30,8 @@ class HeroCarousel extends Component {
       fade: true,
       slidesToShow: 1,
       autoplay: true,
-      speed: 9000,
-      autoplaySpeed: 10
+      speed: 8000,
+      autoplaySpeed: 10,
     };
 
     return (

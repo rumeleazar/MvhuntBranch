@@ -118,7 +118,7 @@ a {
 
 .heroContainer img {
   width: 100%;
-  height: 91vh;
+  height: 100%;
   filter: brightness(50%);
 }
 
@@ -129,7 +129,7 @@ a {
   text-align: justify;
   width: 60%;
   z-index: 2;
-  font-size: 38px;
+  font-size: 34px;
   text-transform: uppercase;
 }
 
@@ -140,7 +140,7 @@ a {
   text-align: justify;
   width: 50%;
   z-index: 2;
-  font-size: 30px;
+  font-size: 27px;
   text-transform: uppercase;
 }
 
@@ -151,7 +151,7 @@ a {
   text-align: justify;
   width: 50%;
   z-index: 2;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 /* CAROUSEL SECTION */
@@ -159,72 +159,12 @@ a {
 .carousel {
   width: 80%;
   margin: 0 auto;
-  display: flex;
-}
-
-.leftButton {
-  flex: 1;
-  margin: auto;
-  flex: 1;
-  height: 55px;
-  width: auto;
-  margin: auto;
-  box-shadow: inset -10px -10px 0px black;
-  transform: translateY(-50%) rotate(135deg);
-}
-.leftButton:hover {
-  box-shadow: inset -10px -10px 0px #686868;
-}
-
-.leftButton button {
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.rightButton {
-  flex: 1;
-  height: 55px;
-  width: auto;
-  margin: auto;
-  box-shadow: inset -10px -10px 0px black;
-  transform: translateY(-50%) rotate(-45deg);
-}
-
-.rightButton:hover {
-  box-shadow: inset -10px -10px 0px #686868;
-}
-
-.rightButton button {
-  opacity: 0;
-  height: 50px;
-  width: 50px;
-}
-
-.movieContainer {
-  height: 320px;
-  width: 59%;
-  padding: 0;
-  margin: 0 auto;
-  text-align: center;
-  overflow: auto;
-  white-space: nowrap;
-  position: relative;
-  flex: 20;
-  overflow: hidden;
-  display: flex;
 }
 
 .cardContainer {
-  min-width: 180px;
+  width: auto;
   text-align: center;
-  min-height: 315px;
-  height: 100%;
-  margin: auto 19px;
-  white-space: pre-wrap;
-  overflow: hidden;
-  transform: translateX(0);
-  transition: 0.8s;
+  height: 250px;
 }
 
 .cardContainer p {
@@ -236,10 +176,11 @@ a {
 }
 
 .cardContainer img {
-  height: 77%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   border-radius: 10px;
   filter: brightness(70%);
+  margin: auto;
 }
 
 .cardContainer img:hover {
@@ -315,7 +256,6 @@ a {
 /* MOVIE INFO SECTION */
 
 .posterHeader {
-  border: 1px solid black;
   width: 100vw;
   height: 90vh;
   box-shadow: inset 0px -360px 300px #181818;
@@ -383,7 +323,6 @@ a {
   width: 80%;
   border-radius: 10px;
   filter: brightness(70%);
-
   margin: auto;
 }
 
@@ -447,7 +386,7 @@ a {
 }
 
 .personBio {
-  width: 80%;
+  width: 70%;
   margin: auto;
   margin-top: 40px;
 }
@@ -461,7 +400,7 @@ a {
 }
 
 .personInfoblock {
-  width: 81%;
+  width: 70%;
   height: 96%;
   position: relative;
   display: inline-block;
@@ -475,6 +414,7 @@ a {
 .personInfoblock h1 {
   font-size: 27px;
   font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .personInfoblock h2 {
@@ -517,4 +457,300 @@ a {
 
   width: 85%;
   height: 100%;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1230px) {
+  /* NAVIGATION BAR */
+
+  .navbar {
+    height: 9vh;
+  }
+
+  .logo h1 {
+    font-size: 30px;
+  }
+
+  /* SEARCH BAR SECTION */
+  .searchbar {
+    transform: translateY(15%);
+    float: right;
+    height: 7vh;
+  }
+
+  .searchbar input {
+    height: 5vh;
+    width: 70%;
+    margin: auto;
+    transform: translateY(9%);
+  }
+
+  .searchbar button {
+    height: 6vh;
+    width: 85px;
+    border-radius: 8px;
+    transform: translateX(-12%) translateY(9%);
+  }
+
+  /* HERO CAROUSEL SECTION */
+
+  .heroContainer h1 {
+    font-size: 29px;
+    width: 100%;
+    top: 58%;
+  }
+
+  .heroContainer h3 {
+    font-size: 25px;
+  }
+
+  .heroContainer p {
+    width: 65%;
+    font-size: 16px;
+    top: 66%;
+  }
+
+  /* CAROUSEL SECTION */
+
+  .homeText {
+    font-size: 29px;
+  }
+
+  /* MOVIE INFO SECTION */
+
+  .posterHeaderInfo {
+    transform: translateY(210%);
+  }
+
+  .reviewContent {
+    line-height: 20px;
+    margin: auto;
+    text-align: justify;
+    height: 30%;
+    width: 90%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  /* PERSON INFO SECTION */
+
+  .personBio img {
+    height: 100%;
+    width: 200px;
+    transform: translateY(5%);
+  }
+
+  .personInfoblock {
+    width: 65%;
+  }
+
+  .personInfoblock p {
+    font-size: 16px;
+  }
+
+  .popularMovies {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .popMoviesCard {
+    height: 200px;
+  }
+
+  .popMoviesCardImage {
+    width: 17.8%;
+    margin-right: 10px;
+  }
+
+  .popMoviesDescription {
+    width: 80%;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  /* FOOTER */
+
+  .footer p {
+    float: left;
+    margin-right: 40px;
+    transform: translateY(330%);
+    font-size: 14px;
+  }
+
+  .footer img {
+    width: 40px;
+    height: 40px;
+    transform: translateY(150%);
+  }
+
+  .footer h4 {
+    position: relative;
+    float: right;
+    clear: right;
+    font-size: 14px;
+    margin: 0;
+    transform: translateY(800%);
+  }
+
+  /* NAVIGATION BAR */
+
+  .navbar {
+    height: 9vh;
+  }
+
+  .logo {
+    width: 150px;
+    text-align: center;
+    height: 8.5vh;
+    position: relative;
+    transform: translateY(0);
+    margin-left: 0;
+  }
+
+  .logo h1 {
+    font-size: 28px;
+    margin: 8% auto;
+  }
+
+  /* SEARCH BAR SECTION */
+  .searchbar {
+    transform: translateY(25%);
+    float: right;
+    width: 62%;
+    height: 7vh;
+  }
+
+  .searchbar input {
+    height: 4vh;
+    width: 70%;
+    transform: translateY(9%);
+  }
+
+  .searchbar button {
+    height: 5vh;
+    width: 85px;
+    transform: translateX(-12%) translateY(9%);
+  }
+
+  /* HERO CAROUSEL SECTION */
+
+  .heroContainer {
+    text-align: center;
+    height: 60vh;
+  }
+  .heroContainer h1 {
+    font-size: 23px;
+    width: 100%;
+    top: 73%;
+    left: 0;
+    text-align: center;
+  }
+
+  .heroContainer h3 {
+    width: 100%;
+    font-size: 20px;
+    top: 63%;
+    left: 0;
+    text-align: center;
+  }
+
+  .heroContainer p {
+    display: none;
+  }
+
+  /* MOVIE INFO SECTION */
+
+  .posterHeader {
+    width: 100vw;
+    height: 50vh;
+    box-shadow: inset 0px -360px 300px #181818;
+  }
+
+  .posterHeaderInfo {
+    transform: translateY(140%);
+  }
+
+  .posterInformation {
+    padding: 10px;
+  }
+
+  .posterHeader img {
+    height: 130px;
+    width: 110px;
+    border-radius: 10px;
+  }
+  .posterHeader h1 {
+    margin: 20px 10px;
+    font-size: 20px;
+  }
+
+  .reviewContent {
+    line-height: 20px;
+    margin: auto;
+    text-align: justify;
+    height: 30%;
+    width: 80%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  .reviewSection h2 a {
+    font-size: 16px;
+  }
+
+  /* PERSON INFO SECTION */
+
+  .personBio {
+    display: block;
+    text-align: center;
+    width: 90%;
+  }
+
+  .personBio img {
+    height: 100%;
+    width: 200px;
+    transform: translateY(0);
+    margin-bottom: 20px;
+  }
+
+  .personInfoblock {
+    width: 100%;
+    margin: auto;
+  }
+
+  .personInfoblock p {
+    font-size: 16px;
+  }
+
+  .popularMovies {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .popMoviesCard {
+    height: 180px;
+  }
+
+  .popMoviesCardImage {
+    width: 23%;
+    margin-right: 10px;
+  }
+
+  .popMoviesDescription {
+    width: 73%;
+    height: 87%;
+
+    font-size: 13px;
+    overflow-y: hidden;
+  }
 }
