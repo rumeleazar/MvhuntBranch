@@ -17,7 +17,7 @@ class App extends Component {
       popularMovies: [],
       upcomingMovies: [],
       searchedMovies: [],
-      search: ""
+      search: "",
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -27,8 +27,8 @@ class App extends Component {
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1
       `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ topratedMovies: [...data.results] });
       });
 
@@ -36,8 +36,8 @@ class App extends Component {
       `https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=1
       `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ popularMovies: [...data.results] });
       });
 
@@ -45,25 +45,25 @@ class App extends Component {
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.apiKey}&language=en-US&page=1
         `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ upcomingMovies: [...data.results] });
       });
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ search: e.target.value });
   };
 
-  handleSearch = e => {
+  handleSearch = (e) => {
     e.preventDefault();
     if (this.state.search !== "") {
       fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.state.search}
         `
       )
-        .then(data => data.json())
-        .then(data => {
+        .then((data) => data.json())
+        .then((data) => {
           this.setState({ searchedMovies: [...data.results] });
         });
     }
@@ -76,7 +76,7 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={props => (
+            render={(props) => (
               <Fragment>
                 <Navigation
                   handleSearch={this.handleSearch}
@@ -106,7 +106,7 @@ class App extends Component {
           <Route
             path="/search/:searchtitle"
             exact
-            render={props => (
+            render={(props) => (
               <Fragment>
                 <SearchResult
                   handleSearch={this.handleSearch}

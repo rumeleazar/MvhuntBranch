@@ -18,6 +18,7 @@ body {
   height: 30vh;
   background-color: black;
   color: white;
+  margin-top: 120px;
 }
 
 .footer p {
@@ -164,7 +165,7 @@ a {
 .cardContainer {
   width: auto;
   text-align: center;
-  height: 250px;
+  height: 290px;
 }
 
 .cardContainer p {
@@ -176,11 +177,12 @@ a {
 }
 
 .cardContainer img {
-  height: 80%;
+  height: 84%;
   width: 80%;
   border-radius: 10px;
   filter: brightness(70%);
   margin: auto;
+  transition: 0.4s;
 }
 
 .cardContainer img:hover {
@@ -209,6 +211,8 @@ a {
   margin: auto;
   text-align: center;
   position: relative;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .searchDescription {
@@ -217,6 +221,8 @@ a {
   text-align: center;
   text-transform: uppercase;
   margin-top: 100px;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .searchDivider {
@@ -240,6 +246,7 @@ a {
   width: 100%;
   border-radius: 10px;
   filter: brightness(70%);
+  transition: 0.4s;
 }
 .searchCardContainer img:hover {
   filter: brightness(110%);
@@ -259,6 +266,8 @@ a {
   width: 100vw;
   height: 90vh;
   box-shadow: inset 0px -360px 300px #181818;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .posterHeaderInfo {
@@ -267,6 +276,8 @@ a {
   width: 80%;
   margin: auto;
   display: flex;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .posterInformation {
@@ -292,11 +303,15 @@ a {
   margin: auto;
   width: 70%;
   font-size: 20px;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .castSummary {
   width: 70%;
   margin: auto;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .castCarouselContainer {
@@ -334,6 +349,8 @@ a {
   width: 70%;
   margin: auto;
   margin-bottom: 90px;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .reviewCard {
@@ -383,6 +400,8 @@ a {
 
 .personInformation {
   width: 100%;
+  opacity: 0;
+  transition: 1.4s;
 }
 
 .personBio {

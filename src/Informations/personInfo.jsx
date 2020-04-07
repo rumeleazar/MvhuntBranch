@@ -11,7 +11,7 @@ class PersonInfo extends Component {
       popularMovies: [],
       gender: "",
       age: "",
-      search: ""
+      search: "",
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -20,8 +20,8 @@ class PersonInfo extends Component {
     fetch(
       `https://api.themoviedb.org/3/person/${this.props.match.params.peopleid}?api_key=${this.apiKey}&language=en-US`
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ person: data });
         console.log(this.state.person);
         const gender = this.state.person.gender === 2 ? "Male" : "Female";
@@ -35,29 +35,42 @@ class PersonInfo extends Component {
     fetch(
       `https://api.themoviedb.org/3/person/${this.props.match.params.peopleid}/movie_credits?api_key=${this.apiKey}&language=en-US`
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ moviesCasted: data });
-        const x = this.state.moviesCasted.cast.filter(function(movies) {
+        const x = this.state.moviesCasted.cast.filter(function (movies) {
           return movies.popularity > 13;
         });
         this.setState({ popularMovies: x.splice(0, 6) });
         console.log(this.state.popularMovies);
       });
+
+    window.addEventListener("load", () => {
+      this.setState({ load: true });
+    });
   }
 
-  handleChange1 = e => {
+  handleChange1 = (e) => {
     this.setState({ search: e.target.value });
   };
 
-  handleSearch1 = e => {
+  handleSearch1 = (e) => {
     e.preventDefault();
     this.setState({ search: e.target.value });
   };
 
   render() {
     return (
-      <div className="personInformation">
+      <div
+        className="personInformation"
+        style={
+          this.state.load
+            ? {
+                opacity: 1,
+              }
+            : { opacity: 0 }
+        }
+      >
         <Navigation
           handleSearch={this.handleSearch1}
           handleChange={this.handleChange1}

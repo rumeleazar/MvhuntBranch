@@ -11,7 +11,8 @@ class MovieInfo extends Component {
       genres: [],
       reviews: [],
       id: this.props.match.params.movieid,
-      search: ""
+      search: "",
+      load: false,
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -21,8 +22,8 @@ class MovieInfo extends Component {
       `https://api.themoviedb.org/3/movie/${this.props.match.params.movieid}?api_key=${this.apiKey}&language=en-US
       `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ featuredMovie: data });
         this.setState({ genres: data.genres });
       });
@@ -30,17 +31,21 @@ class MovieInfo extends Component {
     fetch(
       `https://api.themoviedb.org/3/movie/${this.props.match.params.movieid}/reviews?api_key=${this.apiKey}`
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ reviews: [...data.results] });
       });
+
+    window.addEventListener("load", () => {
+      this.setState({ load: true });
+    });
   }
 
-  handleChange1 = e => {
+  handleChange1 = (e) => {
     this.setState({ search: e.target.value });
   };
 
-  handleSearch1 = e => {
+  handleSearch1 = (e) => {
     e.preventDefault();
     this.setState({ search: e.target.value });
   };
@@ -57,14 +62,27 @@ class MovieInfo extends Component {
         <div className="poster">
           <div
             className="posterHeader"
-            style={{
-              backgroundImage: `url("https://image.tmdb.org/t/p/original/${this.state.featuredMovie.backdrop_path}")`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover"
-            }}
+            style={
+              this.state.load
+                ? {
+                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${this.state.featuredMovie.backdrop_path}")`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    opacity: 1,
+                  }
+                : { opacity: 0 }
+            }
           >
-            <div className="posterHeaderInfo">
+            <div
+              className="posterHeaderInfo"
+              style={
+                this.state.load
+                  ? {
+                      opacity: 1,
+                    }
+                  : { opacity: 0 }
+              }
+            >
               <img
                 src={`https://image.tmdb.org/t/p/original/${this.state.featuredMovie.poster_path}`}
                 alt="this is the card pic"
@@ -78,17 +96,44 @@ class MovieInfo extends Component {
             </div>
           </div>
           <br></br>
-          <div className="posterSummary">
+          <div
+            className="posterSummary"
+            style={
+              this.state.load
+                ? {
+                    opacity: 1,
+                  }
+                : { opacity: 0 }
+            }
+          >
             <h1>SUMMARY</h1>
             <p>{this.state.featuredMovie.overview}</p>
           </div>
           <br></br>
-          <div className="castSummary">
+          <div
+            className="castSummary"
+            style={
+              this.state.load
+                ? {
+                    opacity: 1,
+                  }
+                : { opacity: 0 }
+            }
+          >
             <h1>CAST</h1>
             <CastCarousel id={this.state.id} />
           </div>
           <br></br>
-          <div className="reviewSection">
+          <div
+            className="reviewSection"
+            style={
+              this.state.load
+                ? {
+                    opacity: 1,
+                  }
+                : { opacity: 0 }
+            }
+          >
             <h1>REVIEWS</h1>
             {this.state.reviews.map((review, index) => (
               <div className="reviewCard" key={index}>

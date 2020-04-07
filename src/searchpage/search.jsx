@@ -8,20 +8,21 @@ class SearchResult extends Component {
     super(props);
     this.state = {
       movie: this.props.movies,
-      search: this.props.search
+      search: this.props.search,
+      load: false,
     };
     this.apiKey = process.env.REACT_APP_API;
   }
 
-  handleSearch = e => {
+  handleSearch = (e) => {
     e.preventDefault();
     if (this.props.search !== "") {
       fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.props.search}
         `
       )
-        .then(data => data.json())
-        .then(data => {
+        .then((data) => data.json())
+        .then((data) => {
           this.setState({ movie: [...data.results] });
           this.setState({ search: this.props.search });
         });
@@ -29,16 +30,15 @@ class SearchResult extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
-    console.log(this.props.match.params.searchtitle);
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${this.props.match.params.searchtitle}
       `
     )
-      .then(data => data.json())
-      .then(data => {
+      .then((data) => data.json())
+      .then((data) => {
         this.setState({ movie: [...data.results] });
         this.setState({ search: this.props.match.params.searchtitle });
+        this.setState({ load: true });
       });
   }
 
@@ -51,11 +51,38 @@ class SearchResult extends Component {
           handleChange={this.props.handleChange}
           search={this.props.search}
         />
-        <div className="searchDescription">
+        <div
+          className="searchDescription"
+          style={
+            this.state.load
+              ? {
+                  opacity: 1,
+                }
+              : { opacity: 0 }
+          }
+        >
           <h1>SEARCH RESULTS FOR {this.state.search}</h1>
         </div>
-        <div className="searchDivider"></div>
-        <div className="searchContainer">
+        <div
+          className="searchDivider"
+          style={
+            this.state.load
+              ? {
+                  opacity: 1,
+                }
+              : { opacity: 0 }
+          }
+        ></div>
+        <div
+          className="searchContainer"
+          style={
+            this.state.load
+              ? {
+                  opacity: 1,
+                }
+              : { opacity: 0 }
+          }
+        >
           {this.state.movie.map((movie, index) => (
             <div className="searchCardContainer" key={index}>
               <a
