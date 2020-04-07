@@ -641,7 +641,7 @@ a {
   .searchbar {
     transform: translateY(25%);
     float: right;
-    width: 62%;
+    width: 58%;
     height: 7vh;
   }
 
@@ -653,7 +653,7 @@ a {
 
   .searchbar button {
     height: 5vh;
-    width: 85px;
+    width: 75px;
     transform: translateX(-12%) translateY(9%);
   }
 
