@@ -1,5 +1,7 @@
 # MovieHunt Project #
-A movie searching website created using React. The data on this website comes from the TMBd API
+A movie searching website created using React. This website is powered by the TMDb API. 
 
-  
+## Check deployed WIP here: ## 
+
+https://mvhunt.netlify.com/
 
