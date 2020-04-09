@@ -7,4 +7,6 @@ https://mvhunt.netlify.com/
 
 ### CLONING THE APP ###
 
-
+`git clone https://github.com/rumeleazar/MovieHunt.git`
+`npm install`
+`npm start`
