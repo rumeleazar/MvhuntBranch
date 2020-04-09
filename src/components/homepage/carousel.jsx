@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import ReactImageFallback from "react-image-fallback";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import noimage from "../../assets/images/noimage.png";
 
 class Carousel extends Component {
   constructor(props) {
@@ -35,6 +37,7 @@ class Carousel extends Component {
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 1,
+      draggable: false,
       responsive: [
         {
           breakpoint: 1024,
@@ -76,10 +79,12 @@ class Carousel extends Component {
                   );
                 }}
               >
-                <img
+                <ReactImageFallback
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt="this is the card pic"
-                ></img>
+                  fallbackImage={noimage}
+                  alt="cool image should be here"
+                />
+
                 <p>{movie.title}</p>
               </a>
             </div>

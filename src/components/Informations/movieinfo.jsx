@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CastCarousel from "./castcarousel";
 import Footer from "../homepage/footer";
 import Navigation from "../NavBar/navbar";
+import ReactImageFallback from "react-image-fallback";
+import noimage from "../../assets/images/noimage.png";
 
 class MovieInfo extends Component {
   constructor(props) {
@@ -83,10 +85,12 @@ class MovieInfo extends Component {
                   : { opacity: 0 }
               }
             >
-              <img
-                src={`https://image.tmdb.org/t/p/original/${this.state.featuredMovie.poster_path}`}
-                alt="this is the card pic"
-              ></img>
+              <ReactImageFallback
+                src={`https://image.tmdb.org/t/p/w300${this.state.featuredMovie.poster_path}`}
+                fallbackImage={noimage}
+                alt="cool image should be here"
+              />
+
               <div className="posterInformation">
                 <h1>{this.state.featuredMovie.original_title}</h1>
                 {this.state.genres.map((element, index) => (

@@ -47,12 +47,12 @@ a {
 }
 
 @font-face {
-  src: url("./fonts/Lato-Light.ttf");
+  src: url("./assets/fonts/Lato-Light.ttf");
   font-family: lato;
 }
 
 @font-face {
-  src: url("./fonts/Caveat-Regular.ttf");
+  src: url("./assets/fonts/Caveat-Regular.ttf");
   font-family: caveat;
 }
 

@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./index.css";
-import Navigation from "./NavBar/navbar";
-import Carousel from "./homepage/carousel";
-import HeroCarousel from "./homepage/hero";
-import SearchResult from "./searchpage/search";
-import MovieInfo from "./Informations/movieinfo";
-import Footer from "./homepage/footer";
-import PersonInfo from "./Informations/personInfo";
+import Navigation from "./components/NavBar/navbar";
+import Carousel from "./components/homepage/carousel";
+import HeroCarousel from "./components/homepage/hero";
+import SearchResult from "./components/searchpage/search";
+import MovieInfo from "./components/Informations/movieinfo";
+import Footer from "./components/homepage/footer";
+import PersonInfo from "./components/Informations/personInfo";
 
 class App extends Component {
   constructor(props) {

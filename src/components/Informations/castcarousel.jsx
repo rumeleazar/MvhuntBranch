@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ReactImageFallback from "react-image-fallback";
+import noimage from "../../assets/images/noimage.png";
 
 class CastCarousel extends Component {
   constructor(props) {
@@ -21,12 +23,15 @@ class CastCarousel extends Component {
         this.setState({ cast: data.cast.slice(0, 20) });
       });
   }
+
   render() {
     const settings = {
       infinite: false,
       speed: 500,
       slidesToShow: 5,
-      slidesToScroll: 1,
+      slidesToScroll: 5,
+      swipeToSlide: false,
+      draggable: false,
       responsive: [
         {
           breakpoint: 1024,
@@ -66,10 +71,12 @@ class CastCarousel extends Component {
                   this.props.history.push(`/people/${cast.id}`);
                 }}
               >
-                <img
+                <ReactImageFallback
                   src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
-                  alt="this is the card pic"
-                ></img>
+                  fallbackImage={noimage}
+                  alt="cool image should be here"
+                />
+
                 <p>{cast.name}</p>
               </a>
             </div>

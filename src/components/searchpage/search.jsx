@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Footer from "../homepage/footer";
 import Navigation from "../NavBar/navbar";
+import ReactImageFallback from "react-image-fallback";
+import noimage from "../../assets/images/noimage.png";
 
 class SearchResult extends Component {
   constructor(props) {
@@ -94,10 +96,12 @@ class SearchResult extends Component {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                <img
+                <ReactImageFallback
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                  alt="this is the card pic"
-                ></img>
+                  fallbackImage={noimage}
+                  alt="cool image should be here"
+                />
+
                 <h1>{movie.title}</h1>
               </a>
             </div>
