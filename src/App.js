@@ -82,7 +82,10 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="document">
+        <div
+          className="document"
+          style={this.state.load ? { opacity: 1 } : { opacity: 0 }}
+        >
           <Switch>
             <Route
               path="/"

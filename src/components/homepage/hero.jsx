@@ -31,8 +31,8 @@ class HeroCarousel extends Component {
       fade: true,
       slidesToShow: 1,
       autoplay: true,
-      speed: 4000,
-      autoplaySpeed: 100,
+      speed: 5000,
+      autoplaySpeed: 1000,
     };
 
     return (
