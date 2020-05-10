@@ -13,6 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      load: false,
       topratedMovies: [],
       popularMovies: [],
       upcomingMovies: [],
@@ -23,6 +24,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener("load", () => {
+      this.setState({ load: true });
+    });
+
     fetch(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1
       `
@@ -51,6 +56,11 @@ class App extends Component {
       });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("load");
+  }
+
+  //BUTTON FUNCTIONS
   handleChange = (e) => {
     this.setState({ search: e.target.value });
   };
@@ -72,54 +82,60 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={(props) => (
-              <Fragment>
-                <Navigation
-                  handleSearch={this.handleSearch}
-                  handleChange={this.handleChange}
-                  search={this.state.search}
-                />
-                <HeroCarousel />
-                <h1 className="homeText">Top Rated</h1>
-                <Carousel
-                  movies={this.state.topratedMovies}
-                  handleFilter={this.handleFilter}
-                />
-                <h1 className="homeText">Popular Movies</h1>
-                <Carousel
-                  movies={this.state.popularMovies}
-                  handleFilter={this.handleFilter}
-                />
-                <h1 className="homeText">Upcoming Movies</h1>
-                <Carousel
-                  movies={this.state.upcomingMovies}
-                  handleFilter={this.handleFilter}
-                />
-                <Footer />
-              </Fragment>
-            )}
-          />
-          <Route
-            path="/search/:searchtitle"
-            exact
-            render={(props) => (
-              <Fragment>
-                <SearchResult
-                  handleSearch={this.handleSearch}
-                  handleChange={this.handleChange}
-                  movies={this.state.searchedMovies}
-                  search={this.state.search}
-                />
-              </Fragment>
-            )}
-          />
-          <Route path="/details/:movietitle/:movieid" component={MovieInfo} />
-          <Route path="/people/:peopleid" component={PersonInfo} />
-        </Switch>
+        <div className="document">
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={(props) => (
+                <Fragment>
+                  <div
+                    className="preloader"
+                    style={this.state.load ? { opacity: 0 } : { opacity: 1 }}
+                  ></div>
+                  <Navigation
+                    handleSearch={this.handleSearch}
+                    handleChange={this.handleChange}
+                    search={this.state.search}
+                  />
+                  <HeroCarousel />
+                  <h1 className="homeText">Top Rated</h1>
+                  <Carousel
+                    movies={this.state.topratedMovies}
+                    handleFilter={this.handleFilter}
+                  />
+                  <h1 className="homeText">Popular Movies</h1>
+                  <Carousel
+                    movies={this.state.popularMovies}
+                    handleFilter={this.handleFilter}
+                  />
+                  <h1 className="homeText">Upcoming Movies</h1>
+                  <Carousel
+                    movies={this.state.upcomingMovies}
+                    handleFilter={this.handleFilter}
+                  />
+                  <Footer />
+                </Fragment>
+              )}
+            />
+            <Route
+              path="/search/:searchtitle"
+              exact
+              render={(props) => (
+                <Fragment>
+                  <SearchResult
+                    handleSearch={this.handleSearch}
+                    handleChange={this.handleChange}
+                    movies={this.state.searchedMovies}
+                    search={this.state.search}
+                  />
+                </Fragment>
+              )}
+            />
+            <Route path="/details/:movietitle/:movieid" component={MovieInfo} />
+            <Route path="/people/:peopleid" component={PersonInfo} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }

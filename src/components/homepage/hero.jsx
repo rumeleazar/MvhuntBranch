@@ -8,7 +8,6 @@ class HeroCarousel extends Component {
     super();
     this.state = {
       nowPlayingMovies: [],
-      load: false,
     };
     this.apiKey = this.apiKey = process.env.REACT_APP_API;
   }
@@ -23,20 +22,17 @@ class HeroCarousel extends Component {
       .then((data) => {
         this.setState({ nowPlayingMovies: [...data.results] });
       });
-
-    window.addEventListener("load", () => {
-      this.setState({ load: true });
-    });
   }
 
   render() {
     const settings = {
       infinite: true,
+      lazyLoad: true,
       fade: true,
       slidesToShow: 1,
       autoplay: true,
-      speed: 5000,
-      autoplaySpeed: 1000,
+      speed: 4000,
+      autoplaySpeed: 100,
     };
 
     return (
