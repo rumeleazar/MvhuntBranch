@@ -83,6 +83,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div
+          className="preloader"
+          style={this.state.load ? { opacity: 0 } : { opacity: 1 }}
+        ></div>
+        <div
           className="document"
           style={this.state.load ? { opacity: 1 } : { opacity: 0 }}
         >
@@ -92,10 +96,6 @@ class App extends Component {
               exact
               render={(props) => (
                 <Fragment>
-                  <div
-                    className="preloader"
-                    style={this.state.load ? { opacity: 0 } : { opacity: 1 }}
-                  ></div>
                   <Navigation
                     handleSearch={this.handleSearch}
                     handleChange={this.handleChange}
