@@ -1,10 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import searchicon from "../../assets/images/searchicon.png";
 
 function SearchBar(props) {
   function ButtonRedirect() {
     if (props.search !== "") {
-      setTimeout(function() {
+      setTimeout(function () {
         props.history.push(`/search/${props.search}`);
       }, 100);
     } else {
@@ -22,7 +23,7 @@ function SearchBar(props) {
           onChange={props.handleChange}
         ></input>
         <button type="submit" onClick={ButtonRedirect}>
-          Search
+          <img src={searchicon} alt="search"></img>
         </button>
       </form>
     </div>

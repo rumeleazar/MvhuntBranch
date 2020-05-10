@@ -102,17 +102,17 @@ class App extends Component {
                     search={this.state.search}
                   />
                   <HeroCarousel />
-                  <h1 className="homeText">Top Rated</h1>
+                  <h1 className="homeText">TOP RATED MOVIES</h1>
                   <Carousel
                     movies={this.state.topratedMovies}
                     handleFilter={this.handleFilter}
                   />
-                  <h1 className="homeText">Popular Movies</h1>
+                  <h1 className="homeText">POPULAR MOVIES</h1>
                   <Carousel
                     movies={this.state.popularMovies}
                     handleFilter={this.handleFilter}
                   />
-                  <h1 className="homeText">Upcoming Movies</h1>
+                  <h1 className="homeText">UPCOMING MOVIES</h1>
                   <Carousel
                     movies={this.state.upcomingMovies}
                     handleFilter={this.handleFilter}

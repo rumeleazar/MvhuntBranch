@@ -8,7 +8,7 @@ export default class Navigation extends Component {
         <nav>
           <div className="logo">
             <a href="/">
-              <h1>MovieHunt</h1>
+              <h1>MVHunt</h1>
             </a>
           </div>
           <div>
