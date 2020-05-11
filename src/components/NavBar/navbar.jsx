@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from "./searchbar";
+import { Link } from "react-router-dom";
 
 export default class Navigation extends Component {
   render() {
@@ -7,9 +8,9 @@ export default class Navigation extends Component {
       <div className="navbar">
         <nav>
           <div className="logo">
-            <a href="/">
+            <Link to="/">
               <h1>MVHunt</h1>
-            </a>
+            </Link>
           </div>
           <div>
             <SearchBar

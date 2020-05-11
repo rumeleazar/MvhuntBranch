@@ -4,15 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 class HeroCarousel extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       nowPlayingMovies: [],
     };
     this.apiKey = this.apiKey = process.env.REACT_APP_API;
   }
 
-  componentDidMount() {
+  componentWillMount() {
     fetch(
       `
       https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apiKey}&language=en-US&page=1
@@ -22,6 +22,8 @@ class HeroCarousel extends Component {
       .then((data) => {
         this.setState({ nowPlayingMovies: [...data.results] });
       });
+
+    console.log(this.state.nowPlayingMovies);
   }
 
   render() {
