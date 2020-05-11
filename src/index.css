@@ -708,6 +708,18 @@ a {
     transform: translateY(800%);
   }
 
+  .preloader {
+    top: 50%;
+    left: 40%;
+    width: 80px;
+    height: 20px;
+  }
+
+  .preloader:after,
+  .preloader:before {
+    width: 28px;
+    height: 28px;
+  }
   /* NAVIGATION BAR */
 
   .navbar {
