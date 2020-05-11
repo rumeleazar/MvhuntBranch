@@ -12,7 +12,12 @@ class Carousel extends Component {
     this.state = {
       transformValue: 0,
       rightValue: 0,
+      load: false,
     };
+  }
+
+  componentWillMount() {
+    this.setState({ load: true });
   }
 
   carouselRight = (e) => {
@@ -75,7 +80,16 @@ class Carousel extends Component {
       ],
     };
     return (
-      <div className="carousel">
+      <div
+        className="carousel"
+        style={
+          this.state.load
+            ? {
+                opacity: 1,
+              }
+            : { opacity: 0 }
+        }
+      >
         <Slider {...settings}>
           {this.props.movies.map((movie, index) => (
             <div className="cardContainer" key={index}>

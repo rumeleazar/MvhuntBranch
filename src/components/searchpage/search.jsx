@@ -11,7 +11,6 @@ class SearchResult extends Component {
     this.state = {
       movie: this.props.movies,
       search: this.props.search,
-      load: false,
     };
     this.apiKey = process.env.REACT_APP_API;
   }
@@ -45,7 +44,6 @@ class SearchResult extends Component {
   }
 
   render() {
-    console.log(this.props.search);
     return (
       <div>
         <Navigation

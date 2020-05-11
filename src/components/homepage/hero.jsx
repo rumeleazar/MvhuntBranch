@@ -8,6 +8,7 @@ class HeroCarousel extends Component {
     super(props);
     this.state = {
       nowPlayingMovies: [],
+      load: false,
     };
     this.apiKey = this.apiKey = process.env.REACT_APP_API;
   }
@@ -21,15 +22,13 @@ class HeroCarousel extends Component {
       .then((data) => data.json())
       .then((data) => {
         this.setState({ nowPlayingMovies: [...data.results] });
+        this.setState({ load: true });
       });
-
-    console.log(this.state.nowPlayingMovies);
   }
 
   render() {
     const settings = {
       infinite: true,
-      lazyLoad: true,
       fade: true,
       slidesToShow: 1,
       autoplay: true,
@@ -38,7 +37,16 @@ class HeroCarousel extends Component {
     };
 
     return (
-      <div>
+      <div
+        className="heroCarousel"
+        style={
+          this.state.load
+            ? {
+                opacity: 1,
+              }
+            : { opacity: 0 }
+        }
+      >
         <Slider {...settings}>
           {this.state.nowPlayingMovies.map(
             (movie, index) => (
