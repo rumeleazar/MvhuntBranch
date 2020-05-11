@@ -767,13 +767,13 @@ a {
   /* HERO CAROUSEL SECTION */
 
   .heroCarousel {
-    height: 60vh;
+    height: 40vh;
     transition: 1.4s;
   }
 
   .heroContainer {
     text-align: center;
-    height: 60vh;
+    height: 40vh;
   }
   .heroContainer h1 {
     font-size: 23px;
@@ -796,6 +796,11 @@ a {
   }
 
   /* MOVIE INFO SECTION */
+
+  .homeText {
+    font-size: 25px;
+    text-align: center;
+  }
 
   .posterHeader {
     width: 100vw;
