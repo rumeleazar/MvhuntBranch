@@ -20,22 +20,6 @@ class Carousel extends Component {
     this.setState({ load: true });
   }
 
-  carouselRight = (e) => {
-    e.preventDefault();
-
-    if (this.state.rightValue < this.props.movies.length - 5) {
-      this.setState({ rightValue: this.state.rightValue + 1 });
-      this.setState({ transformValue: this.state.transformValue - 120.5 });
-    }
-  };
-  carouselLeft = (e) => {
-    e.preventDefault();
-    if (this.state.transformValue < 0) {
-      this.setState({ rightValue: this.state.rightValue - 2 });
-      this.setState({ transformValue: this.state.transformValue + 120.5 });
-    }
-  };
-
   render() {
     const settings = {
       infinite: false,
