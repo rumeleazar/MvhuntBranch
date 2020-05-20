@@ -30,6 +30,7 @@ class HeroCarousel extends Component {
     const settings = {
       infinite: true,
       fade: true,
+      lazyLoad: true,
       slidesToShow: 1,
       autoplay: true,
       speed: 2500,
