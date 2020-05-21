@@ -83,7 +83,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div
-          className="preloader"
+          className="document"
           style={this.state.load ? { opacity: 0 } : { opacity: 1 }}
         ></div>
         <div

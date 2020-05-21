@@ -199,9 +199,8 @@ a {
   height: 91vh;
   width: 100vw;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
-
 .heroContainer {
   width: 100vw;
   height: 91vh;
@@ -213,7 +212,7 @@ a {
   width: 100%;
   height: 100%;
   filter: brightness(70%);
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .heroContainer h1 {
@@ -254,7 +253,7 @@ a {
   width: 80%;
   margin: 0 auto;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .cardContainer {
@@ -307,7 +306,7 @@ a {
   text-align: center;
   position: relative;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .searchDescription {
@@ -317,7 +316,7 @@ a {
   text-transform: uppercase;
   margin-top: 100px;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .searchDivider {
@@ -362,7 +361,7 @@ a {
   height: 90vh;
   box-shadow: inset 0px -200px 300px #181818;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .posterHeaderInfo {
@@ -372,7 +371,7 @@ a {
   margin: auto;
   display: flex;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .posterInformation {
@@ -399,14 +398,14 @@ a {
   width: 70%;
   font-size: 20px;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .castSummary {
   width: 70%;
   margin: auto;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .castCarouselContainer {
@@ -445,7 +444,7 @@ a {
   margin: auto;
   margin-bottom: 90px;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .reviewCard {
@@ -496,7 +495,7 @@ a {
 .personInformation {
   width: 100%;
   opacity: 0;
-  transition: 1.4s;
+  transition: 1s;
 }
 
 .personBio {
@@ -768,7 +767,7 @@ a {
 
   .heroCarousel {
     height: 40vh;
-    transition: 1.4s;
+    transition: 1s;
   }
 
   .heroContainer {

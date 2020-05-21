@@ -3,6 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+function Arrow(props) {
+  const { className, style } = props;
+  return <div className={className} style={{ ...style, display: "none" }} />;
+}
+
 class HeroCarousel extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +40,8 @@ class HeroCarousel extends Component {
       autoplay: true,
       speed: 2500,
       autoplaySpeed: 3500,
+      nextArrow: <Arrow />,
+      prevArrow: <Arrow />,
     };
 
     return (
