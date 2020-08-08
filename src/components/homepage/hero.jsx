@@ -18,7 +18,7 @@ class HeroCarousel extends Component {
     this.apiKey = this.apiKey = process.env.REACT_APP_API;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(
       `
       https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apiKey}&language=en-US&page=1
@@ -38,8 +38,8 @@ class HeroCarousel extends Component {
       lazyLoad: true,
       slidesToShow: 1,
       autoplay: true,
-      speed: 2500,
-      autoplaySpeed: 3500,
+      speed: 2000,
+      autoplaySpeed: 3000,
       nextArrow: <Arrow />,
       prevArrow: <Arrow />,
     };
@@ -59,10 +59,12 @@ class HeroCarousel extends Component {
           {this.state.nowPlayingMovies.map(
             (movie, index) => (
               <div className="heroContainer" key={index}>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                  alt="this is the card pic"
-                ></img>
+                <div className="someImage">
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                    alt="this is the card pic"
+                  ></img>
+                </div>
                 <h3>Now Playing</h3>
                 <h1>
                   {movie.title} ({` ${movie.release_date.slice(0, 4)} `})
